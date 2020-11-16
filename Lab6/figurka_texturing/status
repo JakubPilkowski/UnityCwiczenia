@@ -1,0 +1,18 @@
+{
+    "status": "SUCCESS",
+    "execMode": "LOCAL",
+    "nodeName": "Texturing_1",
+    "nodeType": "Texturing",
+    "packageName": "aliceVision",
+    "packageVersion": null,
+    "graph": "",
+    "commandLine": "aliceVision_texturing  --input \"C:/Users/pilko/Desktop/figurka/MeshroomCache/Meshing/3e9454fd1f5a7bd1d972453b755b154d1b09feb4/densePointCloud.abc\" --imagesFolder \"C:/Users/pilko/Desktop/figurka/MeshroomCache/PrepareDenseScene/6655f849c38636b6c053c6b0315309f35eb0b845\" --inputMesh \"C:/Users/pilko/Desktop/figurka/MeshroomCache/MeshFiltering/f54e7e9e20627b788c2dce61be7490e3782bd919/mesh.obj\" --textureSide 8192 --downscale 2 --outputTextureFileType png --unwrapMethod Basic --useUDIM True --fillHoles False --padding 5 --multiBandDownscale 4 --multiBandNbContrib 1 5 10 0 --useScore True --bestScoreThreshold 0.1 --angleHardThreshold 90.0 --processColorspace sRGB --correctEV False --forceVisibleByAllVertices False --flipNormals False --visibilityRemappingMethod PullPush --subdivisionTargetRatio 0.8 --verboseLevel info --output \"C:/Users/pilko/Desktop/figurka/MeshroomCache/Texturing/624959f3f01085d0e103abf26dc9ed6f69ec2698\"",
+    "env": null,
+    "startDateTime": "2020-11-15 00:25:25.341849",
+    "endDateTime": "2020-11-15 00:28:25.927397",
+    "elapsedTime": 180.58554816246033,
+    "hostname": "DESKTOP-UKLFB9N",
+    "sessionUid": "5fa4da92-26cb-11eb-bb07-f8e4e37cac8a",
+    "returnCode": 0,
+    "elapsedTimeStr": "0:03:00.585548"
+}
