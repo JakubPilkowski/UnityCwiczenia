@@ -8,6 +8,12 @@ public class Bullet : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    public Character Owner
+    {
+        get; 
+        set;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +22,28 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Debug.Log(hitInfo.name);
-        Enemy enemy = hitInfo.GetComponent<Enemy>();
-        if(enemy != null)
+
+        Debug.Log("Bullet hit " +hitInfo.gameObject.tag);
+        
+        switch (hitInfo.gameObject.tag)
         {
-            enemy.TakeDamage(40);
+            case "Player":
+                hitInfo.GetComponent<Player>().TakeDamage(Owner.damage);
+                break;
+            case "Enemy":
+                if (Owner.GetType() == typeof(Enemy))
+                    return;
+                else
+                {
+                    hitInfo.GetComponent<Enemy>().TakeDamage(Owner.damage);  
+                }
+                break;
+            case "DestroyableWall":
+                if (Owner.GetType() == typeof(Player))
+                {
+                    hitInfo.GetComponent<Wall>().TakeDamage(Owner.damage);
+                }
+                break;
         }
         Destroy(gameObject);
     }

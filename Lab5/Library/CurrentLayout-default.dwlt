@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 677, y: 492}
   m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
-  controlID: 132
+  controlID: 135
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -150,7 +150,7 @@ MonoBehaviour:
     y: 0
     width: 1536
     height: 781
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
 MonoBehaviour:
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 56
+  controlID: 95
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 221}
   m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
-  controlID: 57
+  controlID: 58
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -338,20 +338,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\pilko\UnityProjects\Lab5
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f4370000
-    m_LastClickedID: 14324
-    m_ExpandedIDs: 00000000c237000000ca9a3b
+    m_SelectedIDs: f0370000
+    m_LastClickedID: 14320
+    m_ExpandedIDs: 00000000b837000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -379,7 +379,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c2370000
+    m_ExpandedIDs: 00000000b8370000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -502,9 +502,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: f8370000
-      m_LastClickedID: 0
-      m_ExpandedIDs: a207ffff5808ffff8047ffff1249fffff4f1ffff36fbffff563700007c370000863700000a4e0000f04e0000
+      m_SelectedIDs: 44380000
+      m_LastClickedID: 14404
+      m_ExpandedIDs: 9afaffff64fbffff443800004e380000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -564,9 +564,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 5.6973305, y: 3.6271772, z: 2.5766246}
+    m_Target: {x: 5.2611823, y: 3.3995502, z: 1.1363336}
     speed: 2
-    m_Value: {x: 5.6973305, y: 3.6271772, z: 2.5766246}
+    m_Value: {x: 5.2611823, y: 3.3995502, z: 1.1363336}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -612,13 +612,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.2742233, y: 0.017566621, z: -0.005067949, w: -0.9615694}
+    m_Target: {x: -0.1392709, y: -0.036857523, z: 0.0051195184, w: -0.98963314}
     speed: 2
-    m_Value: {x: -0.27420297, y: 0.01756532, z: -0.0050675734, w: -0.96149814}
+    m_Value: {x: -0.13926013, y: -0.036854673, z: 0.005119122, w: -0.9895566}
   m_Size:
-    m_Target: 6.479448
+    m_Target: 1.0794468
     speed: 2
-    m_Value: 6.479448
+    m_Value: 1.0794468
   m_Ortho:
     m_Target: 0
     speed: 2
