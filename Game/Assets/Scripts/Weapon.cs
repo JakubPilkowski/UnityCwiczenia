@@ -7,11 +7,16 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public GameObject player;
     public Character weaponOwner;
     float yRotation = 0;
+
+    private Vector2 lookdirection;
+    private float lookAngle;
+
     void Start()
     {
-        if (weaponOwner.GetType() == typeof(Enemy))
+        if (weaponOwner.GetType() == typeof(Enemy) || weaponOwner.GetType() == typeof(WallTrap))
         {
             Debug.Log("enemy zaczyna strzelać");
             StartCoroutine(ShootAllTheTime());
@@ -20,23 +25,15 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
-        /*
+        
         if(weaponOwner.GetType() == typeof(Player))
         {
-            float x = Input.GetAxis("Mouse X")* 400 * Time.deltaTime;
-            float y = Input.GetAxis("Mouse Y") * 400 * Time.deltaTime;
-            
-            //Debug.Log(x);
-            //Debug.Log(y);
-            //transform.rota
-            yRotation += (y-x);
-
-            yRotation = Mathf.Clamp(yRotation, 0, 180f);
-            Debug.Log("Rotacja" +yRotation);
-            firePoint.localRotation = Quaternion.Euler(0f, 0f, yRotation);
+            lookdirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.transform.position;
+            lookAngle = Mathf.Atan2(lookdirection.y, lookdirection.x) * Mathf.Rad2Deg;
+            firePoint.transform.rotation = Quaternion.Euler(0f, 0f, lookAngle);
             
         }
-        */
+        
 
         if (Input.GetButtonDown("Fire1") && weaponOwner.GetType() == typeof(Player))
         {
@@ -48,7 +45,21 @@ public class Weapon : MonoBehaviour
     IEnumerator ShootAllTheTime()
     {
         while (true) {
-            yield return new WaitForSeconds(((Enemy)weaponOwner).shootDelay);
+            if (weaponOwner.GetType() == typeof(Enemy))
+            {
+                if(player != null)
+                {
+                    lookdirection = new Vector2(player.transform.position.x - firePoint.transform.position.x,
+                    player.transform.position.y - firePoint.transform.position.y);
+                    lookAngle = Mathf.Atan2(lookdirection.y, lookdirection.x) * Mathf.Rad2Deg;
+                    firePoint.transform.rotation = Quaternion.Euler(0f, 0f, lookAngle);
+                }
+                yield return new WaitForSeconds(((Enemy)weaponOwner).shootDelay);
+            }
+            else
+            {
+                yield return new WaitForSeconds(((WallTrap)weaponOwner).shootDelay);
+            }
             Shoot();
         }
     }

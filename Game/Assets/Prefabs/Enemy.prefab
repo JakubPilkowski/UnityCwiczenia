@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3149696666468486874}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.1386604}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3149696667356575221}
@@ -204,7 +204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3149696667356575231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15, y: 2.5, z: -2.1386604}
+  m_LocalPosition: {x: 15, y: 2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3149696667758853475}
@@ -238,7 +238,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a1001ae8a88386940bafb62fc0e9a416, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -300,6 +300,7 @@ MonoBehaviour:
   firePoint: {fileID: 3149696667758853475}
   bulletPrefab: {fileID: 2936437003142875187, guid: 0c92fc9d66919334f9f2f45c94c9fe53,
     type: 3}
+  player: {fileID: 0}
   weaponOwner: {fileID: 3149696667356575230}
 --- !u!114 &3149696667356575230
 MonoBehaviour:
@@ -315,7 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   damageMultiplier: 1
-  damage: 0
+  damage: 25
   player: {fileID: 0}
   shootDelay: 1.5
   hpText: {fileID: 3149696666468486877}
@@ -343,7 +344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3149696667758853472}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.75, y: 0, z: 2.1386604}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3149696667356575221}

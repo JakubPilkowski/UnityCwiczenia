@@ -23,19 +23,22 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
 
-        Debug.Log("Bullet hit " +hitInfo.gameObject.tag);
-        
+
         switch (hitInfo.gameObject.tag)
         {
             case "Player":
-                hitInfo.GetComponent<Player>().TakeDamage(Owner.damage);
+                if (Owner.GetType() == typeof(Player))
+                    return;
+                else
+                    hitInfo.GetComponent<Player>().TakeDamage(Owner.damage);
                 break;
             case "Enemy":
+                Debug.Log("Bullet hit " + hitInfo.gameObject.tag);
                 if (Owner.GetType() == typeof(Enemy))
                     return;
                 else
                 {
-                    hitInfo.GetComponent<Enemy>().TakeDamage(Owner.damage);  
+                    hitInfo.GetComponent<Enemy>().TakeDamage(Owner.damage);
                 }
                 break;
             case "DestroyableWall":

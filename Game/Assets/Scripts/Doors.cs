@@ -30,11 +30,17 @@ public class Doors : MonoBehaviour
         {
             isOpening = false;
             isAnimating = false;
+            Vector2 move = doors.position;
+            move.y = positionOpened;
+            doors.position = move;
         }
         else if (isClosing && doors.position.y <= positionClosed)
         {
             isClosing = false;
             isAnimating = false;
+            Vector2 move = doors.position;
+            move.y = positionClosed;
+            doors.position = move;
         }
 
         if (isAnimating)
