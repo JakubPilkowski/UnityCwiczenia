@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    // Update is called once per frame
     public Transform firePoint;
     public GameObject bulletPrefab;
     public GameObject player;
     public Character weaponOwner;
-    float yRotation = 0;
-
     private Vector2 lookdirection;
     private float lookAngle;
 
@@ -18,15 +15,23 @@ public class Weapon : MonoBehaviour
     {
         if (weaponOwner.GetType() == typeof(Enemy) || weaponOwner.GetType() == typeof(WallTrap))
         {
-            Debug.Log("enemy zaczyna strzelać");
             StartCoroutine(ShootAllTheTime());
         }
     } 
 
     void Update()
     {
-        
-        if(weaponOwner.GetType() == typeof(Player))
+
+        if (weaponOwner.GetType() == typeof(Enemy) && player != null)
+        {
+            lookdirection = new Vector2(player.transform.position.x - firePoint.transform.position.x,
+            player.transform.position.y - firePoint.transform.position.y);
+            lookAngle = Mathf.Atan2(lookdirection.y, lookdirection.x) * Mathf.Rad2Deg;
+            firePoint.transform.rotation = Quaternion.Euler(0f, 0f, lookAngle);
+        }
+
+
+        if (weaponOwner.GetType() == typeof(Player))
         {
             lookdirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.transform.position;
             lookAngle = Mathf.Atan2(lookdirection.y, lookdirection.x) * Mathf.Rad2Deg;
@@ -47,13 +52,6 @@ public class Weapon : MonoBehaviour
         while (true) {
             if (weaponOwner.GetType() == typeof(Enemy))
             {
-                if(player != null)
-                {
-                    lookdirection = new Vector2(player.transform.position.x - firePoint.transform.position.x,
-                    player.transform.position.y - firePoint.transform.position.y);
-                    lookAngle = Mathf.Atan2(lookdirection.y, lookdirection.x) * Mathf.Rad2Deg;
-                    firePoint.transform.rotation = Quaternion.Euler(0f, 0f, lookAngle);
-                }
                 yield return new WaitForSeconds(((Enemy)weaponOwner).shootDelay);
             }
             else

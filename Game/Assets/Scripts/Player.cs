@@ -14,18 +14,10 @@ public class Player : Character
     void Start()
     {
         setMaxHp();
-        MeasureDamage();
-
         eventIndicator.gameObject.SetActive(false);
         hpText.text = "HP: " + hp;
         killsText.text = "Kills: " + kills;
-        damageMultiplierText.text = "Damage: x" + damageMultiplier;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        damageMultiplierText.text = "Damage: " + damage;
     }
 
     public void AddKill()
@@ -45,14 +37,13 @@ public class Player : Character
         StopCoroutine(HideEventIndicator());
     }
 
-    public void AddMultiplier()
+    public void AddMultiplier(float value)
     {
-        damageMultiplier++;
-        damageMultiplierText.text = "Damage: x" + damageMultiplier;
-        MeasureDamage();
+        damage += value;
+        damageMultiplierText.text = "Damage: " + damage;
         eventIndicator.gameObject.SetActive(true);
         eventIndicator.color = new Color32(255, 215, 0, 255);
-        eventIndicator.text = "Damage +25";
+        eventIndicator.text = "Damage +"+value;
         StartCoroutine(HideEventIndicator());
     }
 

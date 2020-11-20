@@ -9,7 +9,7 @@ public class Controller : MonoBehaviour
 	[SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
 	[SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_FirePoint;
-
+	[SerializeField] private Transform m_Sprite;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
@@ -81,6 +81,7 @@ public class Controller : MonoBehaviour
 		m_FacingRight = !m_FacingRight;
 		//transform.Rotate(0f, 180f, 0f);
 
+		
 		Vector2 thePosition = m_FirePoint.localPosition;
 		thePosition.x *= -1;
 		m_FirePoint.localPosition = thePosition;
@@ -88,6 +89,14 @@ public class Controller : MonoBehaviour
 		Quaternion theRotation = m_FirePoint.localRotation;
 		theRotation.y = m_FacingRight ? 0f : 180f;
 		m_FirePoint.localRotation = theRotation;
+
+
 		
+
+		Quaternion theSpriteRotation = m_Sprite.localRotation;
+		theSpriteRotation.y = m_FacingRight ? 0f : 180f;
+		m_Sprite.localRotation = theSpriteRotation;
+
+
 	}
 }

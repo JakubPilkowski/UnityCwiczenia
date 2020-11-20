@@ -11,7 +11,7 @@ public class Lift : MonoBehaviour
     private bool isRunningToStart = false;
     private float xStartPosition;
     private float xEndPosition;
-    public GameObject player;
+    private GameObject player;
 
 
     // Start is called before the first frame update
@@ -19,8 +19,6 @@ public class Lift : MonoBehaviour
     {
         xEndPosition = transform.position.y + distance;
         xStartPosition = transform.position.y;
-        Debug.Log("start position " + xStartPosition);
-        Debug.Log("end position "+xEndPosition);
     }
 
     // Update is called once per frame
@@ -30,7 +28,7 @@ public class Lift : MonoBehaviour
         {
             isRunning = false;
             
-            Vector2 move = transform.position;
+            Vector3 move = transform.position;
             move.y = xEndPosition;
             transform.position = move;
         }
@@ -38,7 +36,7 @@ public class Lift : MonoBehaviour
         {
             isRunning = false;
             
-            Vector2 move = transform.position;
+            Vector3 move = transform.position;
             move.y = xStartPosition;
             transform.position = move;
             
@@ -56,25 +54,17 @@ public class Lift : MonoBehaviour
                 move = -transform.up * elevatorSpeed * Time.deltaTime;
             }
             transform.Translate(move);
-            player.transform.Translate(move);
+            if (player != null)
+            {
+                player.transform.Translate(move);
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player trigger lift");
-            /*
-            if (transform.position.y == xEndPosition)
-            {
-                isRunningToStart = true;
-            }
-            else if(transform.position.y == xStartPosition)
-            {
-                isRunningToEnd = true;
-            }
-            */
-
+            player = other.gameObject;
             isRunningToStart = false;
             isRunningToEnd = true;
             isRunning = true;
@@ -85,22 +75,10 @@ public class Lift : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player trigger exit lift");
-            /*
-            Debug.Log("Transform y" + transform.position.y);
-            if (transform.position.y == xEndPosition)
-            {
-                Debug.Log("Transform y" + transform.position.y);
-                isRunningToStart = true;
-                isRunning = true;
-            }
-            else
-            {
-            */
             isRunning = true;
             isRunningToEnd = false;
             isRunningToStart = true;
-            //}
+            player = null;
         }
     }
 }

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class DamagePotion : Potion
 {
-    // Start is called before the first frame update
+    public float value = 5;
+
     public override void OnTriggerWithPlayer(Player player)
     {
-        player.AddMultiplier();
+        player.AddMultiplier(value);
         Destroy(gameObject);
     }
 }

@@ -5,7 +5,6 @@ using TMPro;
 
 public class Enemy : Character
 {
-    //public GameObject deathEffect;
     public Player player;
     public float shootDelay = 1.5f;
     [SerializeField] public TextMeshPro hpText;
@@ -13,7 +12,6 @@ public class Enemy : Character
     void Start()
     {
         setMaxHp();
-        MeasureDamage();
     }
 
     public override void onDie()

@@ -33,7 +33,6 @@ public class Bullet : MonoBehaviour
                     hitInfo.GetComponent<Player>().TakeDamage(Owner.damage);
                 break;
             case "Enemy":
-                Debug.Log("Bullet hit " + hitInfo.gameObject.tag);
                 if (Owner.GetType() == typeof(Enemy))
                     return;
                 else

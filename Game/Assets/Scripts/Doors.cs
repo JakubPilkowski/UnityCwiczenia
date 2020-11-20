@@ -13,7 +13,7 @@ public class Doors : MonoBehaviour
     private float positionOpened;
     private float positionClosed;
 
-    [SerializeField] Transform doors;
+    [SerializeField] private Transform doors;
 
     void Start()
     {
