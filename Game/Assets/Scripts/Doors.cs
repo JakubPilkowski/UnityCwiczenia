@@ -19,8 +19,6 @@ public class Doors : MonoBehaviour
     {
         positionClosed = doors.position.y;
         positionOpened = doors.position.y + doors.localScale.y*2;
-        Debug.Log("Closed" + positionClosed);
-        Debug.Log("Opened" + positionOpened);
     }
 
     // Update is called once per frame
@@ -60,10 +58,8 @@ public class Doors : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("TagEnter " + collider.gameObject.tag);
         if (collider.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player enter");
             isOpening = true;
             isClosing = false;
             isAnimating = true;
@@ -71,13 +67,9 @@ public class Doors : MonoBehaviour
     }
 
     void OnTriggerExit2D(Collider2D collider)
-    {
-        Debug.Log("TagExit " + collider.gameObject.tag);
-
-        
+    { 
         if (collider.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player exit");
             isOpening = false;
             isClosing = true;
             isAnimating = true;

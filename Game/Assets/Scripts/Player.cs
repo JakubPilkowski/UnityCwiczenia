@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+
 public class Player : Character
 {
     private int kills = 0;
@@ -15,19 +16,26 @@ public class Player : Character
     {
         setMaxHp();
         eventIndicator.gameObject.SetActive(false);
-        hpText.text = "HP: " + hp;
+        hpText.text = "Health: " + hp;
         killsText.text = "Kills: " + kills;
         damageMultiplierText.text = "Damage: " + damage;
     }
 
-    public void AddKill()
+    public void AddKill(EnemyType type)
     {
-        kills++;
-        killsText.text = "Kills: " + kills;
-        eventIndicator.gameObject.SetActive(true);
-        eventIndicator.color = new Color32(0, 191, 255, 255);
-        eventIndicator.text = "Kill +1";
-        StartCoroutine(HideEventIndicator());
+        if(type == EnemyType.Normal)
+        {
+            kills++;
+            killsText.text = "Kills: " + kills;
+            eventIndicator.gameObject.SetActive(true);
+            eventIndicator.color = new Color32(0, 191, 255, 255);
+            eventIndicator.text = "Kill +1";
+            StartCoroutine(HideEventIndicator());
+        }
+        if(type == EnemyType.Boss)
+        {
+            FindObjectOfType<GameManager>().Victory();
+        }
     }
 
     IEnumerator HideEventIndicator()
@@ -47,19 +55,14 @@ public class Player : Character
         StartCoroutine(HideEventIndicator());
     }
 
-    public void EndGame()
-    {
-
-    }
-
     public override void onDie()
     {
-        EndGame();
+        FindObjectOfType<GameManager>().GameOver();
     }
 
     public override void onHeal(float amount)
     {
-        hpText.text = "HP: " + hp;
+        hpText.text = "Health: " + hp;
         eventIndicator.gameObject.SetActive(true);
         eventIndicator.color = new Color32(0, 255, 0, 255);
         eventIndicator.text = "+"+amount+"HP";
