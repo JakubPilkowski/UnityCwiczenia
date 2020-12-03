@@ -7,9 +7,6 @@ public abstract class Character : MonoBehaviour
     // Start is called before the first frame update
     public float hp = 100;
     private float maxHp;
-    public int damageMultiplier = 1;
-    private int initialDamage = 25;
-
     public float damage;
 
     public float getMaxHp()
@@ -20,11 +17,6 @@ public abstract class Character : MonoBehaviour
     public void setMaxHp()
     {
         maxHp = hp;
-    }
-
-    public void MeasureDamage()
-    {
-        damage = initialDamage * damageMultiplier;
     }
 
     public void TakeDamage(float damage)
@@ -56,11 +48,6 @@ public abstract class Character : MonoBehaviour
     {
         Destroy(gameObject);
         onDie();
-    }
-
-    void Start()
-    {
-        Debug.Log("start");
     }
 
     public abstract void onDie();

@@ -12,8 +12,8 @@ public abstract class Potion : MonoBehaviour
     private bool toStart = false;
     void Start()
     {
-        positionYstart = transform.position.y - transform.localScale.y / 4;
-        positionYend = transform.position.y + transform.localScale.y / 4;
+        positionYstart = transform.position.y - transform.localScale.y / 5;
+        positionYend = transform.position.y + transform.localScale.y / 5;
     }
     void Update()
     {

@@ -11,15 +11,12 @@ public class Movement : MonoBehaviour
     float horizontalMove = 0;
 
     public bool jump = false;
-    bool crouch = false;
-    // Update is called once per frame
     void Update()
     {
         horizontalMove = Input.GetAxis("Horizontal") * runSpeed;
 
         if (Input.GetButtonDown("Jump"))
         {
-            Debug.Log("update");
             jump = true;
         }
     }

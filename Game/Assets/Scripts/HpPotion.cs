@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HpPotion : Potion
 {
-    // Start is called before the first frame update
 
     public float healAmount;
 

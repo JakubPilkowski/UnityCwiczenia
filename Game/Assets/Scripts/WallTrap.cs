@@ -5,11 +5,6 @@ using UnityEngine;
 public class WallTrap : Character
 {
     public float shootDelay = 2f;
- 
-    void Start()
-    {
-        
-    }
 
     public override void onDie()
     {
