@@ -10,10 +10,9 @@ public class PlayerMovement : MonoBehaviour
     bool jump = false;
     float horizontalMove = 0f;
 
+
     void Update()
     {
-
-
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
